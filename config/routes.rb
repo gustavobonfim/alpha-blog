@@ -5,6 +5,7 @@ root 'pages#home'
 get 'about', to: 'pages#about'
 
 resources :articles
+# root 'articles#index'
 
 
 end
