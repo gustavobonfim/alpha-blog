@@ -1,42 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-	<h1>This is the list of articles</h1>
-	<p><%= link_to 'Create new article', new_article_path %></p>
-	<br>
 
-	<table>
-		<tr>
-			<td><h4>Sort by?</h4></td>
-			<td>
-				<select class="" name="">
-					<option value="">10</option>
-					<option value="">12</option>
-					<option value="">14</option>
-				</select>
-			</td>
-		</tr>
-	</table>
+	<h1 style="text-align: center">This is the list of articles</h1>
 
 
-	<table>
-		<tr>
-			<th>Title</th>
-			<th>Description</th>
-		</tr>
 
 		<% @articles.each do |article| %>
-		<tr>
-			<td><%= article.title %></td>
-			<td><%= truncate(article.description, :length => 35) %></td>
-			<td><%= link_to 'Edit', edit_article_path(article.id) %></td>
-			<td><%= link_to 'Show', article_path(article.id) %></td>
-			<td><%= link_to 'Delete', article_path(article.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
-		</tr>
+
+		<div class="row">
+			<div class="col-xs-8 col-xs-offset-2">
+				<div class="well well-lg">
+					<div class="article_title">
+						<%= link_to article.title, article_path(article) %>
+					</div>
+					<div class="article_body">
+						<%= truncate(article.description, :length => 35) %>
+					</div>
+					<div class="article_actions">
+
+						<%= link_to 'Edit this article', edit_article_path(article), class: "btn btn-xs btn-primary" %>
+						<%= link_to 'Delete this article', article_path(article), method: :delete,
+																						data: {confirm: "Are you sure to delete?"},
+																						class: "btn btn-xs btn-danger" %>
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+
 		<% end %>
-	</table>
-</body>
-</html>
