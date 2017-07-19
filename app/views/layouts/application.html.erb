@@ -9,10 +9,12 @@
   </head>
 
   <body>
-    <p>Show everywhere</p>
 
+    <%= render 'layouts/navigation' %>
   	<%= render 'layouts/messages' %>
-    <%= yield %>
-
+    <div class="container">
+        <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
