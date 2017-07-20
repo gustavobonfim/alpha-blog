@@ -3,6 +3,10 @@ $navbar-default-bg: #086bac;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.page-title {
+  text-align: center;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -100,4 +104,8 @@ footer ul li {
 .article-meta-details {
   border-top: 1px solid #086bac;
   margin-top: 15px;
+}
+
+.listing {
+  list-style: none;
 }
