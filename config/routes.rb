@@ -10,6 +10,7 @@ resources :articles
 get 'signup', to: 'users#new'
 resources :users, except:[:new]
 
+get 'login', to: 'session#new'
 
 # post 'users', to: 'users#create'
 # get 'users/:id/edit', to: 'users#edit'
