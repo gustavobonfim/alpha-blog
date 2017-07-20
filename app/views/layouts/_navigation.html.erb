@@ -16,8 +16,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= link_to 'Articles', articles_path %></li>
-          <li><%= link_to 'New Article', new_article_path %></li>
-
+          <li><%= link_to 'Users', users_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to 'New Article', new_article_path %></li>
+          <% end %>
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
@@ -26,12 +28,17 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-
-            <li><%= link_to 'Log out', logout_path,
-                                        method: :delete,
-                                        data: {confirm: "Are you sure?"},
-                                        id:"btn-logout"%>
-            </li>
+          <% if logged_in? %>
+              <li><%= link_to 'Log out', logout_path,
+                                          method: :delete,
+                                          data: {confirm: "Are you sure?"},
+                                          id:"btn-logout"%>
+              </li>
+              <li><%= link_to 'Edit Your Profile', edit_user_path(current_user), id:"btn-signup" %></li>
+          <% else %>
+              <li><%= link_to 'Log in', login_path, id:"btn-login" %></li>
+              <li><%= link_to 'Sign up', signup_path, id:"btn-signup" %></li>
+          <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
