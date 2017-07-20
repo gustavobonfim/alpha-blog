@@ -8,5 +8,16 @@ resources :articles
 # root 'articles#index'
 
 get 'signup', to: 'users#new'
-post 'users', to: 'users#create'
+resources :users, except:[:new]
+
+
+# post 'users', to: 'users#create'
+# get 'users/:id/edit', to: 'users#edit'
+# patch 'users/:id', to: 'users#update'
+# put 'users/:id', to: 'users#update'
+
+# patch 'users/:id', controller: 'users', action: :update
+# put 'users/:id', controller: 'users', action: :update
+
+
 end

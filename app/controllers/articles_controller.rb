@@ -10,32 +10,30 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-  def edit
-  end
-
-  def update
-
-
-  	if @article.update(article_params)
-  	  flash[:success] = "Article was successfully update!"
-  	  redirect_to article_path(@article)
-  	else
-      render 'edit'
-    end
-  end
-
   def create
     # debugger
     @article = Article.new(article_params)
     @article.user = User.first
-
     if @article.save
       flash[:success] = "Article was successfully created!"
       redirect_to article_path(@article)
     else
       render 'new'
     end
+  end
 
+  def edit
+  end
+
+  def update
+    @article.user = User.first
+  	if @article.update(article_params)
+
+  	  flash[:success] = "Article was successfully update!"
+  	  redirect_to article_path(@article)
+  	else
+      render 'edit'
+    end
   end
 
   def show
@@ -45,7 +43,6 @@ class ArticlesController < ApplicationController
   	@article.destroy
   	flash[:danger] = "Article was successfully destroied"
   	redirect_to articles_path
-
   end
 
   private
