@@ -27,6 +27,7 @@
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
+    
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
               <li><%= link_to 'Log out', logout_path,
@@ -34,7 +35,7 @@
                                           data: {confirm: "Are you sure?"},
                                           id:"btn-logout"%>
               </li>
-              <li><%= link_to 'Edit Your Profile', edit_user_path(current_user), id:"btn-signup" %></li>
+              <li><%= link_to 'Your Profile', edit_user_path(current_user), id:"btn-signup" %></li>
           <% else %>
               <li><%= link_to 'Log in', login_path, id:"btn-login" %></li>
               <li><%= link_to 'Sign up', signup_path, id:"btn-signup" %></li>
